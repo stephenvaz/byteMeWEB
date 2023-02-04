@@ -1,3 +1,7 @@
+//email packages
+const nodemailer = require("nodemailer");
+//email packages
+
 const cors = require("cors");
 const express = require("express");
 const mongoose = require('mongoose');
@@ -49,6 +53,36 @@ app.post("/login", async (req, res) => {
         console.log(err)
     }
 })
+//node mail test
+app.get("/email_test", async (req, res) => {
+    let testAccount = await nodemailer.createTestAccount();
+    let transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: testAccount.user, // generated ethereal user
+          pass: testAccount.pass, // generated ethereal password
+        },
+      });
+      let info = await transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        to: "bar@example.com, baz@example.com", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>", // html body
+      }).then((info)=>{
+        console.log("sent")
+        // return res.send("sent")
+        return res.status(201).json({
+            msg: "sent",
+            info: info.messageId,
+            preview: nodemailer.getTestMessageUrl(info)
+        })
+      })
+
+})
+//node mail test
 
 app.get("/api/permission_requests", async (req, res, next) => {
     const permission_requests = await Permission.find({}).select({ name: 1, email: 1, designation: 1, _id: 0, });
