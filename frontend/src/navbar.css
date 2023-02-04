@@ -1,5 +1,5 @@
 nav{
-    height: 70px;
+    height: 80px;
 
 }
 nav.navBar{    
@@ -41,7 +41,20 @@ a.link:hover{
     
 }
 .icon{
-  padding: 10px;
-  color: blue;
-  
+  /* padding: 10px; */
+  color: black;
+  text-decoration: none;
+  /* margin-top: 5px;   */
+}
+
+.icon:hover {
+  color: black;
+}
+
+#dropdown-basic {
+  border: none;
+}
+
+a.dropdown-item:hover {
+  transform: scale(1.05);
 }
