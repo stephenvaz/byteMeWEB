@@ -2,7 +2,7 @@
 const nodemailer = require("nodemailer");
 const Mailgen = require("mailgen");
 //email packages
-const {EMAIL, PASSWORD} = require("../env.js");
+const { EMAIL, PASSWORD } = require("../env.js");
 
 
 
@@ -88,8 +88,8 @@ app.get("/email_test", async (req, res) => {
 
 })
 //node mail test
-async function sendEmail (link, email)  {
-    
+async function sendEmail(link, email) {
+
     let config = {
         service: "gmail",
         auth: {
@@ -111,7 +111,7 @@ async function sendEmail (link, email)  {
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
-        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>",link, link, // html body
+        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>", link, link, // html body
     }).then((info) => {
         console.log("sent")
         // return res.status(201)
@@ -145,7 +145,7 @@ app.post("/add_event", async (req, res, next) => {
         }
         else {
             console.log("Not Available");
-            return res.send("Not Available");
+            return res.send(`Lecture in ${room} from ${eventFrom} to ${eventTo}`);
         }
     }
 
@@ -158,7 +158,7 @@ app.post("/add_event", async (req, res, next) => {
             continue;
         }
         else {
-            console.log("Not Available another event");
+            console.log(`Already an event exists in ${room} from ${eventFrom} to ${eventTo}`);
             return res.send("Not Available another event");
         }
     }
@@ -175,12 +175,12 @@ app.post("/add_event", async (req, res, next) => {
             prize: prize,
         });
     } catch (err) {
-        console.log("Event already exists");
-        res.send("Event already exists");
+        console.log("Event already exists with this name");
+        res.send("Event already exists with this name");
         return;
     }
-    
-    res.send("Available");
+
+    res.send(`Event has been added successfully in room ${room} from ${eventFrom} to ${eventTo}`);
 })
 
 app.post("/api/event_details", async (req, res) => {
