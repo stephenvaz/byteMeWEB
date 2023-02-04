@@ -71,7 +71,7 @@ app.get("/email_test", async (req, res) => {
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
-        html: "<a href='http://localhost:5173/event/"+link+"'>test</a>",
+        html: "<a href='http://localhost:5173/event/" + link + "'>test</a>",
     }).then((info) => {
         console.log("sent")
         // return res.send("sent")
@@ -84,7 +84,7 @@ app.get("/email_test", async (req, res) => {
 
 })
 //node mail test
-async function sendEmail (link)  {
+async function sendEmail(link) {
     let testAccount = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({
         host: "smtp.ethereal.email",
@@ -100,7 +100,7 @@ async function sendEmail (link)  {
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
-        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>",link, link, // html body
+        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>", link, link, // html body
     }).then((info) => {
         console.log("sent")
         // return res.send("sent")
@@ -168,12 +168,12 @@ app.post("/add_event", async (req, res, next) => {
         res.send("Event already exists");
         return;
     }
-    
+
     res.send("Available");
 })
 
 app.post("/api/event_details", async (req, res) => {
-    const eventName  = req.body['event_name'];
+    const eventName = req.body['event_name'];
     // console.log(req.body.event_name);
     // console.log(eventName);
     const eventDetails = await Events.find({ event_name: eventName });
@@ -193,7 +193,7 @@ app.listen(PORT, hostname, () => {
 app.post("/api/set_permission", async (req, res) => {
     const { eventName, status } = req.body;
     console.log(req.body.eventName);
-    const test = await Events.findOneAndUpdate({ event_name: req.body.eventName}, { status: req.body.status })
+    const test = await Events.findOneAndUpdate({ event_name: req.body.eventName }, { status: req.body.status })
     // console.log(test);
 })
 
