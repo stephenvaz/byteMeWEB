@@ -25,7 +25,8 @@ body {
   }
 
   .info {
-    height: 450px;
+    height: auto;
+    min-height: 450px;
     /* width: 70%; */
     /* text-align: center; */
     width: 400px;
@@ -36,14 +37,22 @@ body {
     border-radius: 10px;
     transition: .5s;
     text-decoration: none;
-    /* padding: 10px; */
+    display: flex;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    padding: 10px;
     /* background-color: #3eaeb1; */
 }
 
 .info-text {
-  display: flex;
+
+  width: auto;
+    height: auto;
   position: relative;
-  top: 50%
+  width: fit-content;
+  display: inline-block;
+  /* top: 50% */
 
 ;
   /* align-items: center; */
