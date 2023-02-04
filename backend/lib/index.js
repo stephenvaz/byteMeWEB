@@ -60,6 +60,8 @@ app.post("/add_event", async (req, res, next) => {
     const checkroom = await TimeTable.find({ room_no: room });
     let eventFrom = moment(fromTime);
     let eventTo = moment(toTime);
+
+    //for lectures
     for (let obj of checkroom) {
         let ttFrom = moment(obj.time_from);
         let ttTo = moment(obj.time_to);
@@ -76,6 +78,7 @@ app.post("/add_event", async (req, res, next) => {
         }
     }
 
+    //for events
     const checkevent = await Events.find({ room_no: room });
     for (let obj of checkevent) {
         let ttFrom = moment(obj.time_from);
@@ -90,18 +93,35 @@ app.post("/add_event", async (req, res, next) => {
         }
     }
 
-    await Events.create({
-        event_name: eventName,
-        venue: venue,
-        time_from: fromTime,
-        time_to: toTime,
-        details: eventDescription,
-        permission: permission,
-        room_no: room,
-        prize: prize,
-    });
+    try {
+        await Events.create({
+            event_name: eventName,
+            venue: venue,
+            time_from: fromTime,
+            time_to: toTime,
+            details: eventDescription,
+            permission: permission,
+            room_no: room,
+            prize: prize,
+        });
+    } catch (err) {
+        console.log("Event already exists");
+        res.send("Event already exists");
+        return;
+    }
 
     res.send("Available");
+})
+
+app.post("/api/event_details", async (req, res) => {
+    const { eventName } = req.body;
+    const eventDetails = await Events.find({ event_name: eventName });
+    res.send(eventDetails);
+})
+
+app.get("/api/all_events", async (req, res) => {
+    const eventDetails = await Events.find();
+    res.send(eventDetails);
 })
 
 app.listen(PORT, hostname, () => {
@@ -109,16 +129,8 @@ app.listen(PORT, hostname, () => {
 })
 
 // const test = async () => {
-//     await Events.create({
-//         event_name: "eventName",
-//         venue: "venue",
-//         time_from: "fromTime",
-//         time_to: "toTime",
-//         details: "eventDescription",
-//         permission: ["permission", "p2"],
-//         room_no: "room",
-//         prize: "prize",
-//     });
+//     const eventDetails = await Events.find();
+//     console.log(eventDetails);
 // }
 
 // test();
