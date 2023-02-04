@@ -43,8 +43,15 @@ body {
     text-align: center;
     padding: 10px;
     color: white;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(0,131,158,1) 100%);
+    /* background-color: #205295; */
     /* padding: 5px; */
     /* background-color: #3eaeb1; */
+}
+
+h1 {
+  text-shadow: 3px 3px 3px #000000;
 }
 
 .info-text {
@@ -73,6 +80,8 @@ body {
     text-align: center;
     padding: 8px;
     color: white;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(0,131,158,1) 100%);
     /* padding: 5px; */
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
@@ -140,8 +149,21 @@ h3 {
   0 0 50px white,
   0 0 200px white;
   /* padding-top: 15px; */
-  
+  animation: regbtn 1s infinite ease;
 }
+
+@keyframes regbtn {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .register1 {
   height: 50px;
   /* width: 70%; */
