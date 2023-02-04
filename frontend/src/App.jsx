@@ -11,7 +11,7 @@ function App() {
     <div className="App">
 
       <Router>
-        <AnimatedRoutes/>
+        <AnimatedRoutes />
         {/* <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/eventadd" element={<EventAdd/>}/>
@@ -19,7 +19,7 @@ function App() {
       </Router>
 
       {/* <Login/> */}
-{/* <EventAdd/> */}
+      {/* <EventAdd/> */}
     </div>
   )
 }

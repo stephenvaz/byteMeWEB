@@ -56,11 +56,11 @@ app.get("/api/permission_requests", async (req, res, next) => {
 })
 
 app.post("/add_event", async (req, res, next) => {
-    const { event_name, venue, time_from, time_to, details, permission, room_no, prize, entry } = req.body;
+    const { eventDescription, eventName, fromTime, permission, prize, room, toTime, venue } = req.body;
     const checkroom = await TimeTable.find({ room_no: room_no });
     let status = true;
-    let eventFrom = moment(time_from);
-    let eventTo = moment(time_to);
+    let eventFrom = moment(fromTime);
+    let eventTo = moment(toTime);
     for (let obj of checkroom) {
         let ttFrom = moment(obj.time_from);
         let ttTo = moment(obj.time_to);
@@ -70,10 +70,19 @@ app.post("/add_event", async (req, res, next) => {
         }
         else {
             status = false;
-            res.send("Not Available");
-            return;
+            return res.send("Not Available");
         }
     }
+    await Events.create({
+        event_name: eventName,
+        venue: venue,
+        time_from: fromTime,
+        time_to: toTime,
+        details: eventDescription,
+        permission: permission,
+        room_no: room,
+        prize: prize,
+    });
     res.send("Available");
 })
 
@@ -82,25 +91,16 @@ app.listen(PORT, hostname, () => {
 })
 
 // const test = async () => {
-//     const checkroom = await TimeTable.find({ room_no: "12" });
-//     console.log(checkroom)
-//     let status = true;
-//     for (let obj of checkroom) {
-//         let eventFrom = moment("2023-02-10T18:30:00");
-//         let eventTo = moment("2023-02-10T20:30:00");
-//         let ttFrom = moment(obj.time_from);
-//         let ttTo = moment(obj.time_to);
-
-//         if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
-//             continue;
-//         }
-//         else {
-//             status = false;
-//             console.log("Not Available");
-//             return;
-//         }
-//     }
-//     console.log("Available");
+//     await Events.create({
+//         event_name: "eventName",
+//         venue: "venue",
+//         time_from: "fromTime",
+//         time_to: "toTime",
+//         details: "eventDescription",
+//         permission: ["permission", "p2"],
+//         room_no: "room",
+//         prize: "prize",
+//     });
 // }
 
 // test();
