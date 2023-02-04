@@ -10,7 +10,7 @@
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     /* width: 50%; */
     float: left;
-    z-index: 10;
+    /* z-index: 10; */
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
 }
@@ -48,8 +48,6 @@ ul {
 
 
 .poster {
-    /* display: flex;
-    justify-content: right; */
     float: right;
     width: 160px;
     height: 160px;
@@ -83,12 +81,10 @@ ul {
 
 }
 
-.row1 {
-  display: flex;
-  justify-content: space-between;
-}
 
 .info-text {
+  display: block; 
+  position: none;
   width: 500px;
 }
 
