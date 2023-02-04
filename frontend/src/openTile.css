@@ -138,6 +138,19 @@ body {
   /* padding: 10px; */
   /* background-color: #3eaeb1; */
 }
+
+.register:hover {
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 50px 50px 50px rgba(0, 0, 0, .3),50px 50px 50px rgba(0, 0, 0, .3);
+
+}
+
+.register:hover h2 {
+  color: black !important
+
+}
+
 .register2 {
   height: 50px;
   /* width: 70%; */

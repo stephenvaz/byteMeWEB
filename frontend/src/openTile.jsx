@@ -26,7 +26,8 @@ function OpenTile() {
                 <h3></h3>
                 <h3></h3>
             </div>
-            <div className="com-logo"></div>
+            <div className="com-logo">
+            </div>
             <div className="register">
                 <button className="" type="submit"><h2>Register</h2></button>
             </div>

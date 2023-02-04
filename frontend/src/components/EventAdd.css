@@ -103,7 +103,7 @@ form{
     
     border-radius: 4px;
 }
-button:hover{
+.btt:hover{
     cursor: pointer;
     transform: scale(1.07);
     transition: 250ms;
