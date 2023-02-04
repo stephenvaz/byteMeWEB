@@ -23,6 +23,10 @@ const eventSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    details: {
+        type: String,
+        default: null,
+    },
     permission: {
         type: Object,
     },
