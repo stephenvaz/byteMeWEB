@@ -55,6 +55,7 @@ app.post("/login", async (req, res) => {
 })
 //node mail test
 app.get("/email_test", async (req, res) => {
+    var link = "vsm"
     let testAccount = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({
         host: "smtp.ethereal.email",
@@ -70,7 +71,7 @@ app.get("/email_test", async (req, res) => {
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        html: "<a href='http://localhost:5173/event/"+link+"'>test</a>",
     }).then((info) => {
         console.log("sent")
         // return res.send("sent")
@@ -83,7 +84,33 @@ app.get("/email_test", async (req, res) => {
 
 })
 //node mail test
-
+async function sendEmail (link)  {
+    let testAccount = await nodemailer.createTestAccount();
+    let transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: testAccount.user, // generated ethereal user
+            pass: testAccount.pass, // generated ethereal password
+        },
+    });
+    let info = await transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        to: "bar@example.com, baz@example.com", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>",link, link, // html body
+    }).then((info) => {
+        console.log("sent")
+        // return res.send("sent")
+        return res.status(201).json({
+            msg: "sent",
+            info: info.messageId,
+            preview: nodemailer.getTestMessageUrl(info)
+        })
+    })
+}
 app.get("/api/permission_requests", async (req, res, next) => {
     const permission_requests = await Permission.find({}).select({ name: 1, email: 1, designation: 1, _id: 0, });
     res.send(permission_requests);
@@ -106,7 +133,6 @@ app.post("/add_event", async (req, res, next) => {
 
         }
         else {
-            status = false;
             console.log("Not Available");
             return res.send("Not Available");
         }
@@ -121,7 +147,6 @@ app.post("/add_event", async (req, res, next) => {
             continue;
         }
         else {
-            status = false;
             console.log("Not Available another event");
             return res.send("Not Available another event");
         }
@@ -143,14 +168,17 @@ app.post("/add_event", async (req, res, next) => {
         res.send("Event already exists");
         return;
     }
-
+    
     res.send("Available");
 })
 
 app.post("/api/event_details", async (req, res) => {
-    const { eventName } = req.body;
+    const eventName  = req.body['event_name'];
+    console.log(req.body.event_name);
+    console.log(eventName);
     const eventDetails = await Events.find({ event_name: eventName });
     res.send(eventDetails);
+    console.log(eventDetails);
 })
 
 app.get("/api/all_events", async (req, res) => {
@@ -162,9 +190,14 @@ app.listen(PORT, hostname, () => {
     console.log(`You can now connect on http://${hostname}:${PORT})`)
 })
 
+app.post("/api/set_permission", async (req, res) => {
+    const { eventName, status } = req.body;
+    await Events.findOneAndUpdate({ event_name: eventName }, { status: status })
+})
+
 // const test = async () => {
-//     const eventDetails = await Events.find({ status: true });
-//     console.log(eventDetails);
+//     const eventName = "event2"
+//     await Events.findOneAndUpdate({ event_name: eventName }, { status: true })
 // }
 
 // test();
