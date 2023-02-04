@@ -2,7 +2,10 @@ import React from 'react';
 import './App.css'
 import NavB from './navbar';
 import BootstrapCarousel from './darkcar';
-import Tile from './tile';
+import Tile from '../src/tile';
+import ImageOne from './parallax/imgOne';
+import ImageTwo from './parallax/imgTwo';
+
 
 function Home() {
   return (
@@ -10,10 +13,7 @@ function Home() {
         <NavB />
       <div className='bigbox'>
         <BootstrapCarousel />
-        <div id='section2'>
-          <Tile />
-        </div>
-        
+        <Tile />
       </div>
     </div>
   )

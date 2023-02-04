@@ -16,9 +16,8 @@ body {
     background: linear-gradient(to right, #43cea2, #185a9d);
     background: linear-gradient(#2193b0, #6dd5ed);
     background-attachment: fixed;
-
     position: absolute;
-    top: 15%;
+    top: 25%;
     left: 15%;
     border-radius: 10px;
     transition: .5s;
@@ -32,7 +31,7 @@ body {
     width: 400px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     position: absolute;
-    top: 15%;
+    top: 18%;
     left: 30%;
     border-radius: 10px;
     transition: .5s;
@@ -72,7 +71,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(
     width: 400px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     position: absolute;
-    top: 15%;
+    top: 18%;
     left: 65%;
     border-radius: 10px;
     transition: .5s;
@@ -97,7 +96,7 @@ h3 {
     width: 300px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     position: absolute;
-    bottom: 5%;
+    bottom: 4%;
     left: 69%;
     border-radius: 10px;
     transition: .5s;

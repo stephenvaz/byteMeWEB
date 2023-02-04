@@ -66,10 +66,12 @@ function Tile() {
         //               <TileTest />
         //     </Row>
         // </Container>
-        <Grid container spacing={2}>
-            <Grid container item xs={6} direction="column" >
-                <TileTest />
-            </Grid>
+       <div>
+         <div>
+        <span className='uevent'>Upcoming Events</span>
+       </div>
+       <div>
+         <Grid container spacing={2}>
             <Grid container item xs={6} direction="column" >
                 <TileTest />
             </Grid>
@@ -84,6 +86,8 @@ function Tile() {
             </Grid>
         </Grid>
        
+       </div>
+       </div>
     )
 }
 

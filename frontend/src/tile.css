@@ -88,7 +88,17 @@ ul {
   width: 500px;
 }
 
-
+.uevent {
+  color: white;
+  font-style: bold;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #000000;
+}
 
 
 

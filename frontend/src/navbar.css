@@ -1,5 +1,5 @@
 nav{
-    height: 80px;
+    height: 125px;
 
 }
 nav.navBar{    
@@ -57,4 +57,18 @@ a.link:hover{
 
 a.dropdown-item:hover {
   transform: scale(1.05);
+}
+
+.d-inline-block {
+  position: absolute;
+  top: -6%;
+  left: 0%;
+}
+
+.navTitle {
+  /* display: flex; */
+  /* justify-content: center; */
+  position: relative;
+  left: 38%;
+  text-shadow: 3px 3px 3px #000000;
 }

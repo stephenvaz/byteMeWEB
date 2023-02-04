@@ -24,6 +24,7 @@
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-carousel": "^4.1.1",
     "react-dom": "^18.2.0",
+    "react-parallax": "^3.5.1",
     "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
