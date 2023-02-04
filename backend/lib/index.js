@@ -106,7 +106,6 @@ app.post("/add_event", async (req, res, next) => {
 
         }
         else {
-            status = false;
             console.log("Not Available");
             return res.send("Not Available");
         }
@@ -121,7 +120,6 @@ app.post("/add_event", async (req, res, next) => {
             continue;
         }
         else {
-            status = false;
             console.log("Not Available another event");
             return res.send("Not Available another event");
         }
@@ -162,9 +160,14 @@ app.listen(PORT, hostname, () => {
     console.log(`You can now connect on http://${hostname}:${PORT})`)
 })
 
+app.post("/api/set_permission", async (req, res) => {
+    const { eventName, status } = req.body;
+    await Events.findOneAndUpdate({ event_name: eventName }, { status: status })
+})
+
 // const test = async () => {
-//     const eventDetails = await Events.find({ status: true });
-//     console.log(eventDetails);
+//     const eventName = "event2"
+//     await Events.findOneAndUpdate({ event_name: eventName }, { status: true })
 // }
 
 // test();
