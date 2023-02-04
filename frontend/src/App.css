@@ -7,8 +7,8 @@ body, html {
 }
 
 body {
-  background: linear-gradient(#141e30, #243b55);
-  background-attachment: fixed;
+  /* background: linear-gradient(#141e30, #243b55);
+  background-attachment: fixed; */
 }
 
 /* #root {
@@ -25,7 +25,13 @@ body {
   height: 1500px;
   width: 70%;
   box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-  background: linear-gradient(#141e30, #243b55);
+  /* background: linear-gradient(#141e30, #243b55); */
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(#2193b0, #6dd5ed);
+  background-attachment: fixed;
+
   position: absolute;
   top: 15%;
   left: 15%;

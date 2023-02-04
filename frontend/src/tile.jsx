@@ -57,7 +57,7 @@ function Tile() {
         <Container>
             <Row className="row1">
                 <Col className="col1">
-                    <a href="#" className="tile-body">
+                    <a href="/openTile" className="tile-body">
                         <div className="info-text">
                             <h1 className="event">Night Party</h1>
                             <ul>
