@@ -57,10 +57,7 @@ app.get("/api/permission_requests", async (req, res, next) => {
 
 app.post("/add_event", async (req, res, next) => {
     const { eventDescription, eventName, fromTime, permission, prize, room, toTime, venue } = req.body;
-    // console.log(req.body)
-
     const checkroom = await TimeTable.find({ room_no: room });
-    let status = true;
     let eventFrom = moment(fromTime);
     let eventTo = moment(toTime);
     for (let obj of checkroom) {
