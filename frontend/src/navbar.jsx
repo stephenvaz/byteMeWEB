@@ -65,9 +65,8 @@ function NavB() {
             />{' '}
             Somehow We Manage!</NavBar.Brand>
           <Nav className="me-right ">
-            <a className='link' href="#home">Home</a>
-            <a className='link' href="#home">Event</a>
-            <a className='link' href="#home">Section</a>
+            <a className='link' href="/home">Home</a>
+            <a className='link' href="#section2">Event</a>
             
             {/* <a className='link' href="/login">Login</a> */}
             <LoginOrLogout />

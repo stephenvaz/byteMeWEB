@@ -10,7 +10,10 @@ function Home() {
         <NavB />
       <div className='bigbox'>
         <BootstrapCarousel />
-        <Tile />
+        <div id='section2'>
+          <Tile />
+        </div>
+        
       </div>
     </div>
   )
