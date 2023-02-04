@@ -67,14 +67,34 @@ const EventAdd = () => {
     // setFromSet(newValue);
     var date = event.$d.toISOString().split("T")[0];
     // console.log(date);
-    setFromSet(date+"T"+event.$H+":"+event.$m);
+    
+    var hour = event.$H;
+    if(hour<10){
+      hour = "0"+hour;
+    }
+    var min = event.$m;
+    if(min<10){
+      min = "0"+min;
+    }
+    setFromSet(date+"T"+hour+":"+min);
 
   }
   function handleToTimeChange(event) {
     
     setToTime(event);
     var date = event.$d.toISOString().split("T")[0];
-    setToSet(date+"T"+event.$H+":"+event.$m);
+    var hour = event.$H;
+    if(hour<10){
+
+      hour = "0"+hour;
+      console.log(hour)
+    }
+    var min = event.$m;
+    if(min<10){
+      min = "0"+min;
+      console.log(min)
+    }
+    setToSet(date+"T"+hour+":"+min);
     // console.log(newValue.toString());
   }
   function handleEventChange(event) {
@@ -133,13 +153,18 @@ const EventAdd = () => {
       }
       // const body = { eventDetails, fromSet, toSet, selected };
       // console.log(body);
+      e.preventDefault();
+    try {
       console.log(payload);
-      // const response = await axios.post("http://localhost:4000/api/events", body);
-    //   console.log(response);
-    //   window.location = "/";
-    // } catch (err) {
-    //   console.error(err.message);
-    // }
+      const response = await axios.post("http://localhost:4000/add_event", payload);
+      console.log(
+        "Event Added"
+      );
+      console.log(response.data);
+      // window.location = "/";
+    } catch (err) {
+      console.error(err.message);
+    }
   }
   const [selected, setSelected] = useState([]);
   const handlePermissionChange = (event) => {

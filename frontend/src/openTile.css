@@ -1,157 +1,142 @@
-.tile-body {
-    height: 160px;
-    position: relative;
-    width: 450px;
-    top: 50%;
-    left: 8%;
+body {
+  background: #43cea2;
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(#2193b0, #6dd5ed);
+  background-attachment: fixed;
+}
+
+.bigbox {
+    height: 1500px;
+    width: 70%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    /* background: linear-gradient(#141e30, #243b55); */
+    background: #43cea2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    background: linear-gradient(#2193b0, #6dd5ed);
+    background-attachment: fixed;
+
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .info {
+    height: 450px;
+    /* width: 70%; */
+    width: 400px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    position: absolute;
+    top: 15%;
+    left: 30%;
     border-radius: 10px;
     transition: .5s;
     text-decoration: none;
-    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-    /* width: 50%; */
-    float: left;
-    z-index: 10;
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
 }
 
-.tile-body:hover {
-    cursor: pointer;
-    box-shadow: 0 0 5px white,
-    0 0 25px white,
-    0 0 50px white,
-    0 0 200px white ;
-    transform: scale(1.1);
-}
-
-.colst {
-  /* width: 1000px; */
-  height: 250px;
-}
-
-.time-icon, .loc-icon, .date-icon, .com-icon{
-  float: left;
-
-  margin-left: -10px;
-  /* margin-bottom: 1px; */
-  margin-right: 5px;
-  color: black;
-}
-
-.com-icon{
-  margin-top: 2px;
-}
-
-ul {
-  list-style-type: none;
-}
-
-
-.poster {
-    /* display: flex;
-    justify-content: right; */
-    float: right;
-    width: 160px;
-    height: 160px;
-    position: absolute;
+.rules {
+    height: 450px;
+    /* width: 70%; */
+    width: 400px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-    background: url("./images/tile.png")no-repeat;
-    background-position: center;
-    background-size: 100%;
-    bottom: 0;
-    right: 0;
+    position: absolute;
+    top: 15%;
+    left: 65%;
+    border-radius: 10px;
+    transition: .5s;
+    text-decoration: none;
     /* padding: 10px; */
-    margin: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    /* box-shadow: 0 0 5px #600992,
-    0 0 25px #600992,
-    0 0 50px #600992,
-    0 0 200px #600992; */
+    /* background-color: #3eaeb1; */
 }
-
-.event{
-  color: white;
-  margin-left: 20px;
-  letter-spacing: 2px;
-  /* margin-top: 4px; */
-}
-
-.col1 {
-  /* position: absolute; */
-  margin-left: 18px;
+  
+.amt {
+    height: 120px;
+    /* width: 70%; */
+    width: 400px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    position: absolute;
+    bottom: 5%;
+    left: 65%;
+    border-radius: 10px;
+    transition: .5s;
+    text-decoration: none;
+    /* padding: 10px; */
+    /* background-color: #3eaeb1; */
 
 }
 
-.row1 {
-  display: flex;
-  justify-content: space-between;
+.com-logo {
+    height: 200px;
+    /* width: 70%; */
+    width: 200px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    position: absolute;
+    bottom: 5%;
+    left: 6%;
+    background: url("./images/csi.jpg") 50% 50% / cover no-repeat;
+    border-radius: 10px;
+    transition: .5s;
+    text-decoration: none;
+    /* padding: 10px; */
+    /* background-color: #3eaeb1; */
+
 }
 
-.info-text {
-  width: 500px;
+.register {
+    height: 50px;
+    /* width: 70%; */
+    width: 200px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    position: absolute;
+    bottom: 10%;
+    left: 37%;
+    border-radius: 10px;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+    /* padding: 10px; */
+    /* background-color: #3eaeb1; */
+    background-color: black;
 }
 
+h2{
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 20%;
+    bottom: 5%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* css for image */
-/* .box {
+.box {
     position: relative;
     width: 300px;
     height: 300px;
   }
   .box-contents {
+    width: 300px;
+    height: 300px;
     position: absolute;
-    top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    top: 20%;
+    left: 10%;
+    background: url('./images/tile.png')no-repeat;
+    background-position: center;
+    background-size: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     transition: .5s ease;
   }
 
-  .box-contents:hover {
-    box-shadow: 0 0 5px #205295,
-  0 0 25px #205295,
-  0 0 50px #205295,
-  0 0 200px #205295;
+  .box:hover {
+    cursor: pointer;
   }
+
 
   .hover-point {
     position: absolute;
@@ -231,25 +216,4 @@ ul {
     transform-origin: left bottom;
     transform: perspective(1000px) rotateX(-10deg) rotateY(10deg) rotateZ(2deg);
   }
-  
-  .box {
-    position: absolute;
-    top: 60%;
-    left: 20%;
-  }
-   */
 
-   /* html for image */
-   /* <div className="demo">
-   <div className="box">
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="hover-point"></div>
-       <div className="box-contents"></div>
-   </div>
-</div> */
