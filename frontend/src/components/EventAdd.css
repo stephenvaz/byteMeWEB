@@ -117,3 +117,13 @@ input[type=text] {
     border-width: 1px;
     background-color: #f0ffff;
   }
+
+ textarea[type=text].desc {
+    height: 200px;
+    font-size: 18px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: solid rgb(73, 155, 217);
+    border-width: 1px;
+    background-color: #f0ffff;
+ }

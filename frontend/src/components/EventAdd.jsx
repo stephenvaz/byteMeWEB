@@ -195,9 +195,9 @@ const EventAdd = () => {
           <label>Event Name</label>
           <input type="text" placeholder=" " name='eventName' onChange={handleEventChange}></input>
         </div>
-        <div >
+        <div>
           <label>Event Description</label>
-          <input type="text" placeholder=" " name='eventDescription'  onChange={handleEventChange}></input>
+          <textarea className='desc' type="text" placeholder=" " name='eventDescription'  onChange={handleEventChange}></textarea>
         </div>
         <div >
           <label>Event Venue</label>
