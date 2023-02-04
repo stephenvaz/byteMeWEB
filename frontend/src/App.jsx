@@ -1,7 +1,7 @@
 import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import './App.css'
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import AnimatedRoutes from './helper/AnimatedRoutes'
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
 
       <Router>
-        <AnimatedRoutes/>
+        <AnimatedRoutes />
         {/* <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/eventadd" element={<EventAdd/>}/>
@@ -18,7 +18,7 @@ function App() {
       </Router>
 
       {/* <Login/> */}
-{/* <EventAdd/> */}
+      {/* <EventAdd/> */}
     </div>
   )
 }

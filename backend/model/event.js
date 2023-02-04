@@ -28,7 +28,7 @@ const eventSchema = mongoose.Schema({
         default: null,
     },
     permission: {
-        type: Object,
+        type: Array,
     },
     room_no: {
         type: String,
