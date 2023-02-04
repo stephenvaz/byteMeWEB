@@ -57,19 +57,24 @@ app.get("/api/permission_requests", async (req, res, next) => {
 
 app.post("/add_event", async (req, res, next) => {
     const { eventDescription, eventName, fromTime, permission, prize, room, toTime, venue } = req.body;
-    const checkroom = await TimeTable.find({ room_no: room_no });
+    // console.log(req.body)
+
+    const checkroom = await TimeTable.find({ room_no: room });
     let status = true;
     let eventFrom = moment(fromTime);
     let eventTo = moment(toTime);
     for (let obj of checkroom) {
         let ttFrom = moment(obj.time_from);
         let ttTo = moment(obj.time_to);
-
+        // console.log("eventfrom-ttFrom"+eventTo.diff(ttFrom));
+        // console.log("eventto-ttTo"+eventTo.diff(ttTo)); 
         if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
             continue;
+
         }
         else {
             status = false;
+            console.log("Not Available");
             return res.send("Not Available");
         }
     }
@@ -83,6 +88,7 @@ app.post("/add_event", async (req, res, next) => {
         room_no: room,
         prize: prize,
     });
+
     res.send("Available");
 })
 
