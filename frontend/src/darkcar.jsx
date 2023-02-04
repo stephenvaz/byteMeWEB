@@ -6,9 +6,9 @@ import Img3 from './images/img3.jpg'
 import Img4 from './images/img4.jpg'
 import Img5 from './images/img5.jpg'
 import './carousel.css'
-// export class BootstrapCarousel extends Component {
-//     render() {
-    function BootstrapCarousel() {
+export class BootstrapCarousel extends Component {
+    render() {
+    // function BootstrapCarousel() {
         return (
             <div className='car'>
                 <div className='container-fluid' style={{padding: 0}}>
@@ -63,6 +63,6 @@ import './carousel.css'
         )
     }
 //     }
-// }
+}
 
 export default BootstrapCarousel 
