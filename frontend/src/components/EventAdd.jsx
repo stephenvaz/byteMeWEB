@@ -190,7 +190,7 @@ const EventAdd = () => {
     <h1>Enter the Details</h1>   
     </div>
     
-      <form>
+      <form className='fm'>
         <div className='L1'>
           <label>Event Name</label>
           <input type="text" placeholder=" " name='eventName' onChange={handleEventChange}></input>

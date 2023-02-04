@@ -42,19 +42,19 @@ body {
     display: table-cell;
     text-align: center;
     padding: 10px;
+    color: white;
+    /* padding: 5px; */
     /* background-color: #3eaeb1; */
 }
 
 .info-text {
 
   width: auto;
-    height: auto;
+  height: auto;
   position: relative;
   width: fit-content;
   display: inline-block;
-  /* top: 50% */
-
-;
+  /* top: 50% ;*/
   /* align-items: center; */
   justify-content: center;
 }
@@ -70,24 +70,37 @@ body {
     border-radius: 10px;
     transition: .5s;
     text-decoration: none;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    /* padding: 5px; */
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
 }
-  
+
+h3 {
+  padding: 10px;
+}
+
 .amt {
     height: 120px;
     /* width: 70%; */
-    width: 400px;
+    width: 300px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     position: absolute;
     bottom: 5%;
-    left: 65%;
+    left: 69%;
     border-radius: 10px;
     transition: .5s;
     text-decoration: none;
     /* padding: 10px; */
-    /* background-color: #3eaeb1; */
+    background-color: black;
+    color: white;
+}
 
+.amt h4 {
+  margin-left: 15px;
+  margin-top: 5px;
 }
 
 .com-logo {
@@ -113,7 +126,7 @@ body {
     width: 200px;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 37%;
     border-radius: 10px;
     transition: .5s;
@@ -122,6 +135,12 @@ body {
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
     background-color: black;
+    box-shadow: 0 0 5px white,
+  0 0 25px white,
+  0 0 50px white,
+  0 0 200px white;
+  /* padding-top: 15px; */
+  
 }
 .register1 {
   height: 50px;
@@ -140,14 +159,14 @@ body {
   /* background-color: #3eaeb1; */
 }
 
-.register:hover {
+.register:hover,.register1:hover, .register2:hover {
   cursor: pointer;
   background-color: white;
   box-shadow: 50px 50px 50px rgba(0, 0, 0, .3),50px 50px 50px rgba(0, 0, 0, .3);
 
 }
 
-.register:hover h2 {
+.register:hover h2, .register:hover h2 , .register:hover h2  {
   color: black !important
 
 }
@@ -197,6 +216,10 @@ h2{
     background-size: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     transition: .5s ease;
+    box-shadow: 0 0 5px white,
+  0 0 25px white,
+  0 0 30px white,
+  0 0 20px white ;
   }
 
   .box:hover {
