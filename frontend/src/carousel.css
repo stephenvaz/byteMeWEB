@@ -17,6 +17,23 @@ body {
   background-attachment: fixed;
 }
 
+.bigbox {
+  height: 1500px;
+  width: 70%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+  /* background: linear-gradient(#141e30, #243b55); */
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(#2193b0, #6dd5ed);
+  background-attachment: fixed;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  border-radius: 10px;
+  transition: .5s;
+}
+
   /* 745x400 */
 .container-fluid{
   /* display: flex;
@@ -55,12 +72,3 @@ body {
   height: 400px;
 }
 
-.uevent {
-  color: white;
-  font-style: bold;
-  font-weight: 600;
-  letter-spacing: 2px;
-  position: absolute;
-  top: 110%;
-  font-size: 30px;
-}

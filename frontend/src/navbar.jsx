@@ -8,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import Logo from './images/logo_transparent.png'
+import Logo from './images/logo.png'
 
 function LoginOrLogout() {
   if (localStorage.getItem("isIn") == 'true') {
@@ -59,11 +59,11 @@ function NavB() {
           <img
               alt=""
               src={Logo}
-              width="90px"
-              height="90px"
+              width="140px"
+              height="140px"
               className="d-inline-block"
-            />{' '}
-            Somehow We Manage!</NavBar.Brand>
+            />
+            <h2 className='navTitle'>Somehow We Manage!</h2></NavBar.Brand>
           <Nav className="me-right ">
             <a className='link' href="#home">Home</a>
             <a className='link' href="#home">Event</a>
