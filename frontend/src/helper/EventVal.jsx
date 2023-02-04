@@ -1,39 +1,109 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import './EventVal.css';
+import '../openTile.css';
+function EventVal() {
 
-const EventVal = () => {
-    
-        // const [eventVal, setEventVal] = useState(0);
-    
-        // const eventHandler = (e) => {
-        //     setEventVal(e.target.value);
-        // };
-        const id = useParams();
-        () => {
-            
-        console.log(id);
-        }
+    const id = useParams();
+    const [data, setData] = useState(null);
+    useEffect(() => {
         
-        // React.useEffect(() => {
-        //     console.log('test');
-        //     console.log(uid);
-        // },[uid]);
-        //get the event details from the id using post request
-        //post event details to the backend
-        //will get the event details from the backend
-        return (
-    
-            <div className="validate">
-    
-                {/* <input type="text" onChange={eventHandler} /> */}
+        const fetchData = async () => {
+            const response = await axios.post("http://localhost:4000/api/event_details", { event_name: id['val'] });
+            setData(response.data);
+            console.log(data);
+        };
+        fetchData();
+        
+    }, []);
 
-                <h1>validation website id {id['val']}</h1>
-                <button onClick={() => console.log(uid)}>test</button>
-                {/* render the event details from sid's expand tile function and also display approve and dissaprove*/}
+    // return (
+
+        
+    //     <div className='back'>
+    //         {/* <NavB /> */}
+    //         <div>
+    //             <div className="box">
+    //                 <a href="#"></a>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="hover-point"></div>
+    //                 <div className="box-contents"></div>
+    //             </div>
+    //         </div>
+    //         <div className="info">
+    //             <div className="info-text">{data[0]['details']}</div>
+
+    //         </div>
+    //         <div className="rules"></div>
+    //         <div className="amt"></div>
+    //         <div className="com-logo"></div>
+    //         <div className="register1">
+    //             <button type="submit" onClick={() => {
+    //                 console.log(data);
+    //             } }><label><h2>Allow</h2></label></button>
+
+    //         </div>
+    //         <div className="register2">
+    //             <button type="submit"><label><h2>Deny</h2></label></button>
+
+    //         </div>
+    //     </div>
+
+    // );
+    if(data) {
+    return (
+        
+        <div className='back'>
+            {/* <NavB /> */}
+            <div>
+                <div className="box">
+                    <a href="#"></a>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="box-contents"></div>
+                </div>
             </div>
-    
-        );
-    
+            <div className="info">
+                <div className="info-text">{data[0]['details']}</div>
+
+            </div>
+            <div className="rules"></div>
+            <div className="amt"></div>
+            <div className="com-logo"></div>
+            <div className="register1">
+                <button type="submit" onClick={() => {
+                    console.log(data);
+                } }><label><h2>Allow</h2></label></button>
+            </div>
+            <div className="register2">
+                <button type="submit"><label><h2>Deny</h2></label></button>
+
+            </div>
+        </div>
+
+    );
+            }
+            else {
+                return (
+                    <div>
+                        <h1>loading</h1>
+                    </div>
+                )
+            }
+
 }
 
 export default EventVal;

@@ -18,7 +18,10 @@ const Login = () => {
       // console.log("response: " + response.data);
       if(response.data == 1) {
         window.location.href = "/";
-
+        localStorage.setItem("isIn", 'true');
+      }
+      else {
+        localStorage.setItem("isIn", 'false');
       }
       // else if{}
     } catch (error) {
