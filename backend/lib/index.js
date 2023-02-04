@@ -2,7 +2,7 @@
 const nodemailer = require("nodemailer");
 const Mailgen = require("mailgen");
 //email packages
-const {EMAIL, PASSWORD} = require("../env.js");
+// const {EMAIL, PASSWORD} = require("../env.js");
 
 
 

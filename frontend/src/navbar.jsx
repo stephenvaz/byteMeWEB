@@ -5,6 +5,8 @@ import NavBar  from 'react-bootstrap/Navbar'
 import Dropdown from 'react-bootstrap/Dropdown';
 import './navbar.css'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function LoginOrLogout() {
   if (localStorage.getItem("isIn") == 'true') {
@@ -14,8 +16,10 @@ function LoginOrLogout() {
     }
     return (
 
-  <a  onClick={handleLogout}>
-      <AccountCircleIcon />
+  <a className='link' onClick={handleLogout}>
+      {/* <AccountCircleIcon style={{fontSize: "40px"}} /> */}
+      <LogoutIcon style={{marginRight:"5px"}}/>
+        Logout
     </a>
     
   
@@ -23,7 +27,9 @@ function LoginOrLogout() {
   }
   else {
     return (
-      <a className='link' href="/login">Login</a>
+      <a className='link' href="/login">
+        <LoginIcon style={{marginRight:"5px"}}/>
+        Login</a>
     );
   }
 }
