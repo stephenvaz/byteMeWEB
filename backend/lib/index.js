@@ -1,6 +1,10 @@
 //email packages
 const nodemailer = require("nodemailer");
+const Mailgen = require("mailgen");
 //email packages
+const {EMAIL, PASSWORD} = require("../env.js");
+
+
 
 const cors = require("cors");
 const express = require("express");
@@ -84,32 +88,39 @@ app.get("/email_test", async (req, res) => {
 
 })
 //node mail test
-async function sendEmail(link) {
-    let testAccount = await nodemailer.createTestAccount();
-    let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, // true for 465, false for other ports
+async function sendEmail (link, email)  {
+    
+    let config = {
+        service: "gmail",
         auth: {
-            user: testAccount.user, // generated ethereal user
-            pass: testAccount.pass, // generated ethereal password
-        },
+            user: EMAIL,
+            pass: PASSWORD
+        }
+    }
+    let transporter = nodemailer.createTransport(config);
+    let MailGenerator = new Mailgen({
+        theme: "default",
+        product: {
+            name: "ByteMe",
+            link: "http://localhost:5173/"
+        }
+
     });
     let info = await transporter.sendMail({
         from: '"Fred Foo 👻" <foo@example.com>', // sender address
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
-        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>", link, link, // html body
+        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>",link, link, // html body
     }).then((info) => {
         console.log("sent")
-        // return res.send("sent")
-        return res.status(201).json({
-            msg: "sent",
-            info: info.messageId,
-            preview: nodemailer.getTestMessageUrl(info)
-        })
-    })
+        // return res.status(201)
+    }).catch((err) => {
+        console.log(err)
+        // return res.status(500)
+    }
+    )
+
 }
 app.get("/api/permission_requests", async (req, res, next) => {
     const permission_requests = await Permission.find({}).select({ name: 1, email: 1, designation: 1, _id: 0, });
@@ -168,7 +179,7 @@ app.post("/add_event", async (req, res, next) => {
         res.send("Event already exists");
         return;
     }
-
+    
     res.send("Available");
 })
 
@@ -203,3 +214,5 @@ app.post("/api/set_permission", async (req, res) => {
 // }
 
 // test();
+
+// sendEmail("event2", "pimoji4508@ezgiant.com")

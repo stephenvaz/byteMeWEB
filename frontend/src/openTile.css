@@ -135,6 +135,7 @@ body {
   transition: .5s;
   cursor: pointer;
   text-align: center;
+  background-color: black;
   /* padding: 10px; */
   /* background-color: #3eaeb1; */
 }
@@ -163,6 +164,7 @@ body {
   transition: .5s;
   cursor: pointer;
   text-align: center;
+  background-color: black;
   /* padding: 10px; */
   /* background-color: #3eaeb1; */
 }
