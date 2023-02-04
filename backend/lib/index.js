@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const app = express();
 
 const User = require("../model/user");
+const Events = require("../model/event");
+const TimeTable = require("../model/timetable");
+
 const PORT = 4000;
 const hostname = "localhost";
 app.use(cors());

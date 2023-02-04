@@ -14,6 +14,13 @@ const userSchema = mongoose.Schema({
         min: 3,
         max: 20,
         unique: true
+    },
+    comm_name: {
+        type: String,
+        required: true,
+        min: 3,
+        max: 20,
+        unique: true
     }
 })
 
