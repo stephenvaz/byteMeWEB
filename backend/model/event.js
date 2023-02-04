@@ -29,8 +29,15 @@ const eventSchema = mongoose.Schema({
     room_no: {
         type: String,
         default: null,
+    },
+    prize: {
+        type: String,
+        defualt: null,
+    },
+    entry: {
+        type: Object,
+        defualt: null
     }
-
 })
 
 module.exports = mongoose.model("Events", eventSchema);
