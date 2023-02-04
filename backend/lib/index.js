@@ -174,11 +174,11 @@ app.post("/add_event", async (req, res, next) => {
 
 app.post("/api/event_details", async (req, res) => {
     const eventName = req.body['event_name'];
-    console.log(req.body.event_name);
-    console.log(eventName);
+    // console.log(req.body.event_name);
+    // console.log(eventName);
     const eventDetails = await Events.find({ event_name: eventName });
     res.send(eventDetails);
-    console.log(eventDetails);
+    // console.log(eventDetails);
 })
 
 app.get("/api/all_events", async (req, res) => {
@@ -192,7 +192,9 @@ app.listen(PORT, hostname, () => {
 
 app.post("/api/set_permission", async (req, res) => {
     const { eventName, status } = req.body;
-    await Events.findOneAndUpdate({ event_name: eventName }, { status: status });
+    console.log(req.body.eventName);
+    const test = await Events.findOneAndUpdate({ event_name: req.body.eventName }, { status: req.body.status })
+    // console.log(test);
 })
 
 // const test = async () => {
