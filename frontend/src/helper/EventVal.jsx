@@ -17,46 +17,16 @@ function EventVal() {
         fetchData();
         
     }, []);
+    const handleAllow = async (e) => {
+        e.preventDefault();
+        await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: true });
 
-    // return (
-
-        
-    //     <div className='back'>
-    //         {/* <NavB /> */}
-    //         <div>
-    //             <div className="box">
-    //                 <a href="#"></a>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="hover-point"></div>
-    //                 <div className="box-contents"></div>
-    //             </div>
-    //         </div>
-    //         <div className="info">
-    //             <div className="info-text">{data[0]['details']}</div>
-
-    //         </div>
-    //         <div className="rules"></div>
-    //         <div className="amt"></div>
-    //         <div className="com-logo"></div>
-    //         <div className="register1">
-    //             <button type="submit" onClick={() => {
-    //                 console.log(data);
-    //             } }><label><h2>Allow</h2></label></button>
-
-    //         </div>
-    //         <div className="register2">
-    //             <button type="submit"><label><h2>Deny</h2></label></button>
-
-    //         </div>
-    //     </div>
-
-    // );
+    }
+    const handleDeny = async (e) => {
+        e.preventDefault();
+        await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: false });
+    }
+   
     if(data) {
     return (
         
@@ -84,12 +54,10 @@ function EventVal() {
             <div className="amt"></div>
             <div className="com-logo"></div>
             <div className="register1">
-                <button type="submit" onClick={() => {
-                    console.log(data);
-                } }><label><h2>Allow</h2></label></button>
+                <button type="button" onClick={handleAllow }><label><h2>Allow</h2></label></button>
             </div>
             <div className="register2">
-                <button type="submit"><label><h2>Deny</h2></label></button>
+                <button type="button" onClick={handleDeny}><label><h2>Deny</h2></label></button>
 
             </div>
         </div>
