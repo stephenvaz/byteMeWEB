@@ -13,7 +13,7 @@ import Col from 'react-bootstrap/Col';
 
 function TileTest() {
     return (
-        <Col className="colst" xs={6} style={{ width: "500px" }}>
+        <Col className="colst" xs={6} style={{ width: "500px", marginBottom: "-40px" }}>
             <a href="/openTile" className="tile-body">
                 <div className="info-text">
                     <h1 className="event">Night Party</h1>

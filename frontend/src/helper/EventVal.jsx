@@ -20,11 +20,12 @@ function EventVal() {
     const handleAllow = async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: true });
-
+        window.location.href = "/";
     }
     const handleDeny = async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: false });
+        window.location.href = "/";
     }
    
     if(data) {

@@ -106,20 +106,39 @@ async function sendEmail(link, email) {
         }
 
     });
-    let info = await transporter.sendMail({
-        from: '"Fred Foo 👻" <foo@example.com>', // sender address
-        to: "bar@example.com, baz@example.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<a href='http://localhost:5173/event/%d'>http://localhost:5173/event/%d</a>", link, link, // html body
-    }).then((info) => {
-        console.log("sent")
-        // return res.status(201)
-    }).catch((err) => {
-        console.log(err)
-        // return res.status(500)
+    let emailBody = {
+        body: {
+            name: "",
+            intro: "Permission Approval Request",
+            action: {
+                instructions: "Click the button below to approve the permission request",
+                button: {
+                    color: "#22BC66",
+                    text: "Approve",
+                    link: "http://localhost:5173/event/" + link
+                }
+
+            },
+            outro : "We've verified that there's no other clashing event or class. You may go ahead and approve the request."
+        }
     }
-    )
+    let emailTemplate = MailGenerator.generate(emailBody);
+    let message = {
+        from: EMAIL,
+        to: email,
+        subject: "Permission Approval Request",
+        html: emailTemplate
+
+    }
+     transporter.sendMail(message, (err, info) => {
+        if (err) {
+            console.log(err)
+        }
+        // else {
+        //     console.log(info)
+        // }
+    }
+     )
 
 }
 app.get("/api/permission_requests", async (req, res, next) => {
@@ -159,7 +178,7 @@ app.post("/add_event", async (req, res, next) => {
         }
         else {
             console.log(`Already an event exists in ${room} from ${eventFrom} to ${eventTo}`);
-            return res.send("Not Available another event");
+            return res.send("Not Available, another event exists");
         }
     }
 
@@ -179,8 +198,12 @@ app.post("/add_event", async (req, res, next) => {
         res.send("Event already exists with this name");
         return;
     }
+    for(let i=0;i<permission.length;i++){
+        sendEmail(eventName,permission[i]);
+        console.log("sent" + permission[i]+ eventName);
+    }
 
-    res.send(`Event has been added successfully in room ${room} from ${eventFrom} to ${eventTo}`);
+    res.send(`Successful`);
 })
 
 app.post("/api/event_details", async (req, res) => {

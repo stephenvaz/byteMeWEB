@@ -134,6 +134,7 @@ const EventAdd = () => {
     console.log(fromSet);
     console.log(toSet);
   }
+  const [respData , setResp] = useState("");
   const handleSubmit = async(e) => {
     // e.preventDefault();
     // try {
@@ -160,7 +161,14 @@ const EventAdd = () => {
       console.log(
         "Event Added"
       );
+      if(response.data === "Success"){
+        window.location.href = "/";
+      }
+      else {
+        setResp(response.data);
+      }
       console.log(response.data);
+
       // window.location = "/";
     } catch (err) {
       console.error(err.message);
@@ -241,7 +249,7 @@ const EventAdd = () => {
             
         <div >
           <label>Name</label>
-          <Select multiple value={selected} onChange={(e) => {
+          <Select className='selc' multiple value={selected} onChange={(e) => {
             handlePermissionChange(e)
           }}>
             {
@@ -255,6 +263,8 @@ const EventAdd = () => {
               })}
           </Select>
         </div>
+        <div
+        >{respData}</div>
         <div className='L2'>
           <button type="button" className='btt' onClick={handleSubmit}>Add Event</button>
         </div>

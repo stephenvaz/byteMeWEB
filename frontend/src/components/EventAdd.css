@@ -16,15 +16,19 @@ background: linear-gradient(#2193b0, #6dd5ed);
 
 .inline1{
     display: inline-block;
-    width: 359.2px;
+    width: 359px;
     float: left;
 
 }
 .inline2{
     display: inline-block;
-    width: 359.2px;
+    width: 359px;
 }
 
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+
+    padding: 10px !important;
+}
 
 .flex-container {
     display: flex;
