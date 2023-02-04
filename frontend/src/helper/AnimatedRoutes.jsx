@@ -6,6 +6,7 @@ import EventAdd from '../components/EventAdd'
 import InitialTransition from '../components/Loading';
 import Home from '../home';
 import OpenTile from '../openTile';
+import EventVal from './EventVal';
 
 function AnimatedRoutes() {
     const location = useLocation()
@@ -17,6 +18,7 @@ function AnimatedRoutes() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/eventadd" element={<EventAdd />} />
                 <Route path='/openTile' element={<OpenTile />} />
+                <Route path="/event/:val" element= {<EventVal/>}/>
             </Routes>
         </AnimatePresence>
     )

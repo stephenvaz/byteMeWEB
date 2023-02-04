@@ -6,7 +6,8 @@ const eventSchema = mongoose.Schema({
         required: true,
         min: 3,
         max: 20,
-        required: true
+        required: true,
+        unique: true,
     },
     venue: {
         type: String,
@@ -37,6 +38,10 @@ const eventSchema = mongoose.Schema({
     prize: {
         type: String,
         defualt: null,
+    },
+    status: {
+        type: Boolean,
+        default: false,
     },
 })
 
