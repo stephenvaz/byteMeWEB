@@ -39,6 +39,10 @@ const eventSchema = mongoose.Schema({
         type: String,
         defualt: null,
     },
+    status: {
+        type: Boolean,
+        default: false,
+    },
 })
 
 module.exports = mongoose.model("Events", eventSchema);

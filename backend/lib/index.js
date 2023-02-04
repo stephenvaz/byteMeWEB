@@ -120,7 +120,7 @@ app.post("/api/event_details", async (req, res) => {
 })
 
 app.get("/api/all_events", async (req, res) => {
-    const eventDetails = await Events.find();
+    const eventDetails = await Events.find({ status: true });
     res.send(eventDetails);
 })
 
@@ -129,7 +129,7 @@ app.listen(PORT, hostname, () => {
 })
 
 // const test = async () => {
-//     const eventDetails = await Events.find();
+//     const eventDetails = await Events.find({ status: true });
 //     console.log(eventDetails);
 // }
 
