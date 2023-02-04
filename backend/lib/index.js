@@ -61,17 +61,17 @@ app.get("/email_test", async (req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: testAccount.user, // generated ethereal user
-          pass: testAccount.pass, // generated ethereal password
+            user: testAccount.user, // generated ethereal user
+            pass: testAccount.pass, // generated ethereal password
         },
-      });
-      let info = await transporter.sendMail({
+    });
+    let info = await transporter.sendMail({
         from: '"Fred Foo 👻" <foo@example.com>', // sender address
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
         html: "<b>Hello world?</b>", // html body
-      }).then((info)=>{
+    }).then((info) => {
         console.log("sent")
         // return res.send("sent")
         return res.status(201).json({
@@ -79,7 +79,7 @@ app.get("/email_test", async (req, res) => {
             info: info.messageId,
             preview: nodemailer.getTestMessageUrl(info)
         })
-      })
+    })
 
 })
 //node mail test
