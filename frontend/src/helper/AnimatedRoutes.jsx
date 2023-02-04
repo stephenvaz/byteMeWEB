@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import EventAdd from '../components/EventAdd'
 import InitialTransition from '../components/Loading';
 import Home from '../home';
+import OpenTile from '../openTile';
 
 function AnimatedRoutes() {
     const location = useLocation()
@@ -15,6 +16,7 @@ function AnimatedRoutes() {
                 <Route path='/home' element={<Home/>}/>
                 <Route path="/login" element={<Login />} />
                 <Route path="/eventadd" element={<EventAdd />} />
+                <Route path='/openTile' element={<OpenTile />} />
             </Routes>
         </AnimatePresence>
     )

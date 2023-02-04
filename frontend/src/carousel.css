@@ -9,7 +9,11 @@
   } */
 
 body {
-  background: linear-gradient(#141e30, #243b55);
+  /* background: linear-gradient(#141e30, #243b55);
+  background-attachment: fixed; */
+  background: #43cea2; 
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
+  background: linear-gradient(to right, #43cea2, #185a9d);
   background-attachment: fixed;
 }
 
@@ -28,10 +32,10 @@ body {
 .car {
   height: 400px;
   width: 70%;
-  box-shadow: 0 0 5px #205295,
-  0 0 25px #205295,
-  0 0 50px #205295,
-  0 0 200px #205295;
+  box-shadow: 0 0 5px white,
+  0 0 25px white,
+  0 0 50px white,
+  0 0 200px white ;
   position: relative;
   left: 15%;
   margin-top: 100px;
