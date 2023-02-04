@@ -7,6 +7,10 @@ const permSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
+    },
+    designation: {
+        type: String,
+        required: true,
     }
 })
 

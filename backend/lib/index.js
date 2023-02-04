@@ -49,7 +49,7 @@ app.post("/login", async (req, res) => {
 })
 
 app.get("/api/permission_requests", async (req, res, next) => {
-    const permission_requests = await Permission.find({}).select({ name: 1, email: 1, _id: 0, });
+    const permission_requests = await Permission.find({}).select({ name: 1, email: 1, designation: 1, _id: 0, });
     res.send(permission_requests);
 })
 
