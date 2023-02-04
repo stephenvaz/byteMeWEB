@@ -78,6 +78,21 @@ app.post("/add_event", async (req, res, next) => {
             return res.send("Not Available");
         }
     }
+
+    const checkevent = await Events.find({ room_no: room });
+    for (let obj of checkevent) {
+        let ttFrom = moment(obj.time_from);
+        let ttTo = moment(obj.time_to);
+        if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
+            continue;
+        }
+        else {
+            status = false;
+            console.log("Not Available another event");
+            return res.send("Not Available another event");
+        }
+    }
+
     await Events.create({
         event_name: eventName,
         venue: venue,
