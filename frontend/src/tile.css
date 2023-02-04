@@ -1,14 +1,16 @@
 .tile-body {
     height: 160px;
-    /* width: 70%; */
-    width: 45%;
-    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-    position: absolute;
-    top: 45%;
-    /* left: 15%; */
+    position: relative;
+    width: 450px;
+    top: 50%;
+    left: 8%;
     border-radius: 10px;
     transition: .5s;
     text-decoration: none;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    /* width: 50%; */
+    float: left;
+    z-index: 10;
     /* padding: 10px; */
     /* background-color: #3eaeb1; */
 }
@@ -20,6 +22,11 @@
     0 0 50px white,
     0 0 200px white ;
     transform: scale(1.1);
+}
+
+.colst {
+  /* width: 1000px; */
+  height: 250px;
 }
 
 .time-icon, .loc-icon, .date-icon, .com-icon{
@@ -46,12 +53,13 @@ ul {
     float: right;
     width: 160px;
     height: 160px;
-    position: relative;
+    position: absolute;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     background: url("./images/tile.png")no-repeat;
     background-position: center;
     background-size: 100%;
-    bottom: 108%;
+    bottom: 0;
+    right: 0;
     /* padding: 10px; */
     margin: 0;
     border-top-right-radius: 10px;
@@ -80,8 +88,9 @@ ul {
   justify-content: space-between;
 }
 
-
-
+.info-text {
+  width: 500px;
+}
 
 
 

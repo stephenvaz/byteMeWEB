@@ -22,7 +22,10 @@ function OpenTile() {
             </div>
             <div className="info"></div>
             <div className="rules"></div>
-            <div className="amt"></div>
+            <div className="amt">
+                <h3></h3>
+                <h3></h3>
+            </div>
             <div className="com-logo"></div>
             <div className="register">
                 <button type="submit"><label><h2>Register</h2></label></button>

@@ -21,8 +21,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 //multiple selector
-
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './EventAdd.css'
+import { Container } from '@mui/system';
 
 
 
@@ -177,15 +179,19 @@ const EventAdd = () => {
   var index = 0;
   return (
     // create a form to ask for details of the event
-    <motion.div
+    // <Container>
+          <motion.div
       className='eventAdd'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       // transition={{delay: 0, duration: 1}}
       exit={{ opacity: 0 }}
-    >
+    ><div className='top'>
+    <h1>Enter the Details</h1>   
+    </div>
+    
       <form>
-        <div >
+        <div className='L1'>
           <label>Event Name</label>
           <input type="text" placeholder=" " name='eventName' onChange={handleEventChange}></input>
         </div>
@@ -205,30 +211,35 @@ const EventAdd = () => {
           <label>Prize</label>
           <input type="text" placeholder=" " name='prize' onChange={handleEventChange}></input>
         </div>
-        <div>
-          <label>From</label>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker
-              label="DateTime"
-              inputFormat="DD-MM-YYYY HH:mm"
-              value={fromTime}
-              onChange={handleFromTimeChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-        </div>
-        <div>
-          <label>To</label>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker
-              label="DateTime"
-              inputFormat="DD-MM-YYYY HH:mm"
-              value={toTime}
-              onChange={handleToTimeChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-
+        {/* <div class="flex-container"> */}
+          <div className='inline1'>
+                  <label>From</label>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DateTimePicker
+                      label="DateTime"
+                      inputFormat="DD-MM-YYYY HH:mm"
+                      value={fromTime}
+                      onChange={handleFromTimeChange}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </div>
+            
+            <div className='inline2'>
+              <label>To</label>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="DateTime"
+                  inputFormat="DD-MM-YYYY HH:mm"
+                  value={toTime}
+                  onChange={handleToTimeChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+            </div>
+         {/* </div> */}
+            
+        <div >
           <label>Name</label>
           <Select multiple value={selected} onChange={(e) => {
             handlePermissionChange(e)
@@ -244,13 +255,16 @@ const EventAdd = () => {
               })}
           </Select>
         </div>
-        <div>
-          <button type="button" onClick={handleSubmit}>Add Event</button>
+        <div className='L2'>
+          <button type="button" className='btt' onClick={handleSubmit}>Add Event</button>
         </div>
 
       </form>
 
     </motion.div>
+
+    
+
   )
 }
 
