@@ -1,6 +1,8 @@
 const cors = require("cors");
 const express = require("express");
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const moment = require('moment');
+
 const app = express();
 
 const User = require("../model/user");
@@ -33,7 +35,7 @@ app.post("/login", async (req, res) => {
     console.log(req.body)
     const { email, password } = req.body;
     try {
-        const findUser = await User.find({ email });
+        const findUser = await User.find({ email: email });
         if (!findUser[0]) {
             return res.send("0");
         }
@@ -53,6 +55,52 @@ app.get("/api/permission_requests", async (req, res, next) => {
     res.send(permission_requests);
 })
 
+app.post("/add_event", async (req, res, next) => {
+    const { event_name, venue, time_from, time_to, details, permission, room_no, prize, entry } = req.body;
+    const checkroom = await TimeTable.find({ room_no: room_no });
+    let status = true;
+    let eventFrom = moment(time_from);
+    let eventTo = moment(time_to);
+    for (let obj of checkroom) {
+        let ttFrom = moment(obj.time_from);
+        let ttTo = moment(obj.time_to);
+
+        if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
+            continue;
+        }
+        else {
+            status = false;
+            res.send("Not Available");
+            return;
+        }
+    }
+    res.send("Available");
+})
+
 app.listen(PORT, hostname, () => {
     console.log(`You can now connect on http://${hostname}:${PORT})`)
 })
+
+// const test = async () => {
+//     const checkroom = await TimeTable.find({ room_no: "12" });
+//     console.log(checkroom)
+//     let status = true;
+//     for (let obj of checkroom) {
+//         let eventFrom = moment("2023-02-10T18:30:00");
+//         let eventTo = moment("2023-02-10T20:30:00");
+//         let ttFrom = moment(obj.time_from);
+//         let ttTo = moment(obj.time_to);
+
+//         if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
+//             continue;
+//         }
+//         else {
+//             status = false;
+//             console.log("Not Available");
+//             return;
+//         }
+//     }
+//     console.log("Available");
+// }
+
+// test();
