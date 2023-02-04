@@ -1,0 +1,62 @@
+/* .carousel-item{
+    opacity:0;
+    transition: opacity 0.2s !important;
+  }
+
+.carousel-item.active{
+    opacity:1;
+    transition: opacity 0.5s !important;
+  } */
+
+body {
+  background: linear-gradient(#141e30, #243b55);
+  background-attachment: fixed;
+}
+
+  /* 745x400 */
+.container-fluid{
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+  /* padding-left: 100px; */
+}
+
+.items {
+  /* padding-left: 20%; */
+}
+
+.car {
+  height: 400px;
+  width: 70%;
+  box-shadow: 0 0 5px #205295,
+  0 0 25px #205295,
+  0 0 50px #205295,
+  0 0 200px #205295;
+  position: relative;
+  left: 15%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.carbody {
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+
+}
+
+.d-block {
+  width: 1000px;
+  height: 400px;
+}
+
+.uevent {
+  color: white;
+  font-style: bold;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 115%;
+  font-size: 30px;
+}

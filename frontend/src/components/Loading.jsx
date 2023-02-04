@@ -55,7 +55,7 @@ const blackBox = {
       onAnimationStart={() => document.body.classList.add("overflow-hidden")}
       onAnimationComplete={() =>
         {
-            window.location.href = "/login";
+            window.location.href = "/home";
               return document.body.classList.remove("overflow-hidden");
           }
 
