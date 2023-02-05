@@ -235,11 +235,12 @@ app.post("/api/set_permission", async (req, res) => {
 app.get("/api/complete_timetable", async (req, res) => {
     try {
         const tt = await TimeTable.find({});
+        return res.send(tt);
     } catch (err) {
         console.log(err);
         return res.send(err);
     }
-    return res.send(tt);
+    // return res.send(tt);
 })
 // const test = async () => {
 //     const tt = await TimeTable.find({});

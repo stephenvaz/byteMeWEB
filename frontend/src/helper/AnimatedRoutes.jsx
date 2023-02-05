@@ -7,6 +7,7 @@ import InitialTransition from '../components/Loading';
 import Home from '../home';
 import OpenTile from '../openTile';
 import EventVal from './EventVal';
+import Calendarview from '../components/calendarview';
 
 function AnimatedRoutes() {
     const location = useLocation()
@@ -19,6 +20,7 @@ function AnimatedRoutes() {
                 <Route path="/eventadd" element={<EventAdd />} />
                 <Route path='/openTile' element={<OpenTile />} />
                 <Route path="/event/:val" element= {<EventVal/>}/>
+                <Route path="/cal" element={<Calendarview/>} />
             </Routes>
         </AnimatePresence>
     )

@@ -68,7 +68,7 @@ function NavB() {
           <Nav className="me-right ">
             <a id="home" className='link' href="/home">Home</a>
             <a className='link' href="#section2">Event</a>
-            
+            <a className='link' href='/cal'>Calendar</a>
             {/* <a className='link' href="/login">Login</a> */}
             <LoginOrLogout />
           </Nav>
