@@ -1,7 +1,7 @@
 import { Parallax } from 'react-parallax';
 import NavB from '../navbar';
 import BootstrapCarousel from '../darkcar';
-import im1 from '../images/img1.jpg'
+import im1 from '../images/open.jpg'
 import './imgOne.css'
 
 
