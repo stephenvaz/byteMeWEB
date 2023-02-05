@@ -46,12 +46,12 @@ function OpenTile() {
                 </div>
             </div>
             <div className="info">
-                <h1>About Night Party</h1>
+                <h1 className="heading">About Night Party</h1>
                 <p>{detail[0].details}
                 </p>
             </div>
             <div className="rules">
-                <h1> Rules</h1>
+                <h1 className="heading"> Rules</h1>
                 <ul style={{ listStyle: "unset", textAlign: "left" }}>
                     <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
                     <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>

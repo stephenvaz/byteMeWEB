@@ -10,11 +10,11 @@ import './tile.css'
 
 export class BootstrapCarousel extends Component {
     render() {
-    // function BootstrapCarousel() {
+        // function BootstrapCarousel() {
         return (
-            <div className="bigbox">
-                <div className='car'>
-                <div className='container-fluid' style={{padding: 0}}>
+            // <div className="bigbox">
+            <div className='car'>
+                <div className='container-fluid' style={{ padding: 0 }}>
                     <Carousel className='carbody' variant="">
                         <Carousel.Item className='items'  >
                             <img
@@ -57,16 +57,16 @@ export class BootstrapCarousel extends Component {
                             </Carousel.Caption> */}
                         </Carousel.Item>
                     </Carousel>
-                    <Carousel.Caption>
+                    {/* <Carousel.Caption>
                                 <h3>Recent Events</h3>
-                    </Carousel.Caption>
+                    </Carousel.Caption> */}
                 </div>
-                
+
             </div>
-            </div>
+            // </div>
         )
     }
-//     }
+    //     }
 }
 
 export default BootstrapCarousel 

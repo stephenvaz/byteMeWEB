@@ -3,6 +3,11 @@ body {
   background: -webkit-linear-gradient(to right, #43cea2, #185a9d);
   background: linear-gradient(to right, #43cea2, #185a9d);
   background: linear-gradient(#2193b0, #6dd5ed);
+  background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+  background: #43C6AC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   background-attachment: fixed;
 }
 
@@ -15,6 +20,8 @@ body {
     background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #43cea2, #185a9d);
     background: linear-gradient(#2193b0, #6dd5ed);
+ 
+
     background-attachment: fixed;
     position: absolute;
     top: 25%;
@@ -44,6 +51,11 @@ body {
     color: white;
     background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(0,131,158,1) 100%);
+background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+background: #43C6AC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     /* background-color: #205295; */
     /* padding: 5px; */
     /* background-color: #3eaeb1; */
@@ -81,6 +93,12 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(
     color: white;
     background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(0,131,158,1) 100%);
+background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+background: #43C6AC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
     /* padding: 5px; */
     /* padding: 10px; */
     /* background-color: #3eaeb1; */

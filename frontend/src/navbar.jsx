@@ -8,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import Logo from './images/logo.png'
+import Logo1 from './images/Removal-765.png'
 
 function LoginOrLogout() {
   if (localStorage.getItem("isIn") == 'true') {
@@ -53,19 +53,20 @@ function LoginOrLogout() {
 function NavB() {
     return (
     <nav className='main-nav'>
-      <NavBar className='navBar fixed-top'  variant="dark">
+      <NavBar className='navBar fixed-top me-right'  variant="dark">
         <Container>
-          <NavBar.Brand href="#home">
+          <NavBar.Brand href="/home">
           <img
               alt=""
-              src={Logo}
-              width="140px"
-              height="140px"
+              src={Logo1}
+              width="170px"
+              height="150px"
               className="d-inline-block"
             />
-            <h2 className='navTitle'>Somehow We Manage!</h2></NavBar.Brand>
+            <h2 className='navTitle'>Somehow We Manage!</h2>
+            </NavBar.Brand>
           <Nav className="me-right ">
-            <a className='link' href="/home">Home</a>
+            <a id="home" className='link' href="/home">Home</a>
             <a className='link' href="#section2">Event</a>
             
             {/* <a className='link' href="/login">Login</a> */}

@@ -47,17 +47,18 @@ body {
 }
 
 .car {
-  height: 400px;
-  width: 70%;
+  height: 100vh;
+  width: 100%;
   box-shadow: 0 0 5px white,
   0 0 25px white,
   0 0 50px white,
   0 0 200px white ;
-  position: relative;
-  left: 15%;
+  /* position: relative; */
+  /* left: 15%; */
   margin-top: 100px;
   display: flex;
-  justify-content: center;
+  justify-items: center;
+  object-fit: contain;
 }
 
 .carbody {
@@ -68,7 +69,8 @@ body {
 }
 
 .d-block {
-  width: 1000px;
-  height: 400px;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
 }
 

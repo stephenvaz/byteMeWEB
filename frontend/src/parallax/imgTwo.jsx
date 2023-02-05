@@ -6,7 +6,7 @@ import './imgOne.css'
 import Tile from '../tile';
 
 
-const ImageOne = () => (
+const Imagetwo = () => (
     <Parallax className='image' bgImage={im1} strength={800}>
        <div className='content'>
        <NavB />
@@ -15,4 +15,4 @@ const ImageOne = () => (
     </Parallax>
 )
 
-export default ImageOne
+export default Imagetwo

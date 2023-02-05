@@ -1,11 +1,13 @@
 nav{
-    height: 125px;
+    height: 90px;
+    padding: 0;
+    margin: 0;
 
 }
 nav.navBar{    
     /* background-color:#393ce2; */
     /* position: fixed; */
-    width: 70%;
+    width: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     /* background: #43cea2; 
   background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
@@ -14,9 +16,7 @@ nav.navBar{
     /* background: linear-gradient(#141e30, #243b55); */
     /* position: absolute; */
     /* top: 15%; */
-    left: 15%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    /* left: 15%; */
     /* background: linear-gradient(#2193b0, #6dd5ed); */
     background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,6,90,1) 0%, rgba(0,131,158,1) 60%);
@@ -38,8 +38,9 @@ a.link:hover{
     text-decoration: none;
     color: #ffffff;
     font-size: 17px;
-    
 }
+
+
 .icon{
   /* padding: 10px; */
   color: black;
@@ -61,14 +62,18 @@ a.dropdown-item:hover {
 
 .d-inline-block {
   position: absolute;
-  top: -6%;
-  left: 0%;
+  top: -30%;
+  left: -2%;
 }
 
 .navTitle {
   /* display: flex; */
   /* justify-content: center; */
   position: relative;
-  left: 38%;
+  left: 0%;
   text-shadow: 3px 3px 3px #000000;
+}
+
+#home {
+  margin-left: 30px;
 }
