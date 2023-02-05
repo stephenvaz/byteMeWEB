@@ -70,10 +70,19 @@ a.dropdown-item:hover {
   /* display: flex; */
   /* justify-content: center; */
   position: relative;
-  left: 0%;
+  left: 6%;
   text-shadow: 3px 3px 3px #000000;
 }
 
 #home {
   margin-left: 30px;
+}
+
+/* extra test css */
+.me-right{
+  float: right;
+}
+
+.me-left{
+  float: left;
 }

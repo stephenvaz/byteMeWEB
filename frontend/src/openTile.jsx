@@ -69,7 +69,10 @@ function OpenTile() {
             <div className="com-logo">
             </div>
             <div className="register">
-                <button className="regbut" type="submit"><h2>Register</h2></button>
+                <button className="regbut" type="submit"  onClick={() => {
+                    //   window.location.href = "https://forms.gle/tSUGYp3rg3XH77pA8"
+                    window.open("https://forms.gle/tSUGYp3rg3XH77pA8", "_blank")
+                }}><h2>Register</h2></button>
             </div>
         </div>
     )

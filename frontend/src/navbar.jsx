@@ -55,7 +55,7 @@ function NavB() {
     <nav className='main-nav'>
       <NavBar className='navBar fixed-top me-right'  variant="dark">
         <Container>
-          <NavBar.Brand href="/home">
+          <NavBar.Brand className='me-left' href="/home">
           <img
               alt=""
               src={Logo1}

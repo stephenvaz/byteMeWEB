@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { motion } from 'framer-motion'
 import './Login.css'
 import { useState } from 'react';
 
@@ -39,7 +40,11 @@ const Login = () => {
     }
   }
   return (
-    <div className="loginBox">
+    <motion.div className="loginBox"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    // transition={{delay: 0, duration: 1}}
+    exit={{ opacity: 0 }}>
       <h2>Login</h2>
       {/* test button */}
       {/* <button className='bg-blue-500'>
@@ -77,7 +82,7 @@ const Login = () => {
           Submit
         </a>
       </form>
-    </div>
+    </motion.div>
 
   )
 }

@@ -5,7 +5,7 @@ import BootstrapCarousel from './darkcar';
 import Tile from '../src/tile';
 import ImageOne from './parallax/imgOne';
 import ImageTwo from './parallax/imgTwo';
-
+import {motion} from 'framer-motion';
 
 function Home() {
   return (
@@ -16,10 +16,15 @@ function Home() {
     //     <Tile />
     //   </div>
     // </div>
-    <div>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    // transition={{delay: 0, duration: 1}}
+    exit={{ opacity: 0 }}
+    >
     <ImageOne />
     <ImageTwo />
-    </div>
+    </motion.div>
   )
 }
 
