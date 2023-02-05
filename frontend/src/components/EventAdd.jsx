@@ -161,7 +161,7 @@ const EventAdd = () => {
       console.log(
         "Event Added"
       );
-      if(response.data === "Success"){
+      if(response.data === "Successful"){
         window.location.href = "/";
       }
       else {

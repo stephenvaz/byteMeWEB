@@ -12,7 +12,7 @@ function OpenTile() {
     useEffect(() => {
         return async () => {
             console.log(eventName)
-            const resp = await axios.post("http://localhost:4000/api/event_details", { eventName });
+            const resp = await axios.post("http://localhost:4000/api/event_details", { event_name: eventName });
             console.log(resp);
             setDetail(resp.data);
             console.log(detail[0])

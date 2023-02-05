@@ -156,8 +156,6 @@ app.post("/add_event", async (req, res, next) => {
     for (let obj of checkroom) {
         let ttFrom = moment(obj.time_from);
         let ttTo = moment(obj.time_to);
-        // console.log("eventfrom-ttFrom"+eventTo.diff(ttFrom));
-        // console.log("eventto-ttTo"+eventTo.diff(ttTo)); 
         if ((eventFrom.diff(ttFrom) < 0 && eventTo.diff(ttFrom) < 0) || (eventFrom.diff(ttTo) > 0 && eventTo.diff(ttTo) > 0)) {
             continue;
 
@@ -207,9 +205,10 @@ app.post("/add_event", async (req, res, next) => {
 })
 
 app.post("/api/event_details", async (req, res) => {
-    const { eventName } = req.body;
-    console.log(eventName);
-    const eventDetails = await Events.find({ event_name: eventName });
+    const  event_name  = req.body.event_name;
+    // console.log(event_name);
+    // console.log(req.body)
+    const eventDetails = await Events.find({ event_name: event_name });
     res.send(eventDetails);
     // console.log(eventDetails);
 })
@@ -230,7 +229,9 @@ app.post("/api/set_permission", async (req, res) => {
     console.log(req.body.eventName);
     const test = await Events.findOneAndUpdate({ event_name: req.body.eventName }, { status: req.body.status })
     // console.log(test);
+    res.send("Successful");
 })
+
 
 app.get("/api/complete_timetable", async (req, res) => {
     try {

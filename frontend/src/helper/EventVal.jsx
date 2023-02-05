@@ -19,15 +19,18 @@ function EventVal() {
     }, []);
     const handleAllow = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: true });
-        window.location.href = "/";
+        const resp = await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: true });
+        if(resp.data == "Successful")
+        {window.location.href = "/";}
     }
     const handleDeny = async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:4000/api/set_permission", { eventName: id['val'], status: false });
+        if(resp.data == "Successful")
+        {
         window.location.href = "/";
+        }
     }
-   
     if(data) {
     return (
         
@@ -51,8 +54,22 @@ function EventVal() {
                 <div className="info-text">{data[0]['details']}</div>
 
             </div>
-            <div className="rules"></div>
-            <div className="amt"></div>
+            <div className="rules">
+                <h1 className="heading"> Rules</h1>
+                <ul style={{ listStyle: "unset", textAlign: "left" }}>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
+                </ul>
+            </div>
+            <div className="amt">
+                <h4>Date: 05-02-2023</h4>
+                <h4>Time: 16:30</h4>
+                <h4>Prize: 50000 INR</h4>
+            </div>
             <div className="com-logo"></div>
             <div className="register1">
                 <button type="button" onClick={handleAllow }><label><h2>Allow</h2></label></button>
