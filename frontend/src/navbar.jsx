@@ -23,7 +23,7 @@ function LoginOrLogout() {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item href="#/action-1">
-       <a className='icon'>
+       <a className='icon' href='/eventadd'> 
        <AddCircleOutlineIcon style={{marginRight:"4px",color:"black"}}/> 
           Add Event
        </a>

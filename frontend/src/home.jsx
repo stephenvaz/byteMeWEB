@@ -9,17 +9,6 @@ import ImageTwo from './parallax/imgTwo';
 
 function Home() {
   return (
-<<<<<<< HEAD
-    <div className='back'>
-        <NavB />
-      <div className='bigbox'>
-        <BootstrapCarousel />
-        <div id='section2'>
-          <Tile />
-        </div>
-        
-      </div>
-=======
     // <div className='back'>
     //     <NavB />
     //   <div className='bigbox'>
@@ -30,7 +19,6 @@ function Home() {
     <div>
     <ImageOne />
     <ImageTwo />
->>>>>>> e81b79012a1aff70bc258bd3a91d7c7cf4146a58
     </div>
   )
 }

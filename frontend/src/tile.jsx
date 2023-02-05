@@ -66,7 +66,7 @@ function Tile() {
         //               <TileTest />
         //     </Row>
         // </Container>
-       <div>
+       <div id="section2">
          <div>
         <span className='uevent'>Upcoming Events</span>
        </div>

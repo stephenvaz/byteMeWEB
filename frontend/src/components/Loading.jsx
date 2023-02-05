@@ -1,7 +1,6 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 
-
 const blackBox = {
     initial: {
       height: "100vh",
@@ -76,13 +75,13 @@ const blackBox = {
           />
         </pattern>
         <text
-          className="text-4xl font-bold"
+          className="text-2xl font-bold"
           textAnchor="middle"
           x="50%"
           y="50%"
           style={{ fill: "url(#pattern)" }}
         >
-          Test Website
+          Somehow We Manage!
         </text>
       </motion.svg>
     </motion.div>
