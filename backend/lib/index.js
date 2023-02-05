@@ -119,7 +119,7 @@ async function sendEmail(link, email) {
                 }
 
             },
-            outro : "We've verified that there's no other clashing event or class. You may go ahead and approve the request."
+            outro: "We've verified that there's no other clashing event or class. You may go ahead and approve the request."
         }
     }
     let emailTemplate = MailGenerator.generate(emailBody);
@@ -130,7 +130,7 @@ async function sendEmail(link, email) {
         html: emailTemplate
 
     }
-     transporter.sendMail(message, (err, info) => {
+    transporter.sendMail(message, (err, info) => {
         if (err) {
             console.log(err)
         }
@@ -138,7 +138,7 @@ async function sendEmail(link, email) {
         //     console.log(info)
         // }
     }
-     )
+    )
 
 }
 app.get("/api/permission_requests", async (req, res, next) => {
@@ -198,9 +198,9 @@ app.post("/add_event", async (req, res, next) => {
         res.send("Event already exists with this name");
         return;
     }
-    for(let i=0;i<permission.length;i++){
-        sendEmail(eventName,permission[i]);
-        console.log("sent" + permission[i]+ eventName);
+    for (let i = 0; i < permission.length; i++) {
+        sendEmail(eventName, permission[i]);
+        console.log("sent" + permission[i] + eventName);
     }
 
     res.send(`Successful`);
@@ -232,9 +232,18 @@ app.post("/api/set_permission", async (req, res) => {
     // console.log(test);
 })
 
+app.get("/api/complete_timetable", async (req, res) => {
+    try {
+        const tt = await TimeTable.find({});
+    } catch (err) {
+        console.log(err);
+        return res.send(err);
+    }
+    return res.send(tt);
+})
 // const test = async () => {
-//     const eventDetails = await Events.find({ status: true });
-//     console.log(eventDetails);
+//     const tt = await TimeTable.find({});
+//     console.log(tt);
 // }
 
 // test();
