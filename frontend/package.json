@@ -19,6 +19,8 @@
     "bootstrap": "^5.2.3",
     "dayjs": "^1.11.7",
     "framer-motion": "^9.0.1",
+    "localStorage": "^1.0.4",
+    "location": "^0.0.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",

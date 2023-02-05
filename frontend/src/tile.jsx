@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Img from './images/tile.png';
 import './tile.css';
 import { Icon } from '@mui/material';
@@ -12,9 +12,25 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TileTest from "./tiletest";
 import Grid from '@material-ui/core/Grid'
-
+import { useState } from "react";
+import axios from "axios";
 
 function Tile() {
+    const [details, setDetails] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            const resp = await axios.get("http://localhost:4000/api/all_events");
+            console.log(resp.data);
+            setDetails(resp.data);
+            console.log(details);
+        }
+        fetchData();
+    }, [])
+    if(!details) {
+        return (
+            <div>Loading...</div>
+        )
+    }
     return (
         // <div className="container-fluid">
         //     <div className="row">
@@ -66,28 +82,28 @@ function Tile() {
         //               <TileTest />
         //     </Row>
         // </Container>
-       <div id="section2">
+        <div id="section2">
          <div>
         <span className='uevent'>Upcoming Events</span>
        </div>
        <div>
-         <Grid container spacing={2}>
-            <Grid container item xs={6} direction="column" >
-                <TileTest />
-            </Grid>
-            <Grid container item xs={6} direction="column" >
-                <TileTest />
-            </Grid>
-            <Grid container item xs={6} direction="column" >
-                <TileTest />
-            </Grid>
-            <Grid container item xs={6} direction="column" >
-                <TileTest />
-            </Grid>
+        <Grid container spacing={2}>
+            {/* <Grid container item xs={6} direction="column" > */}
+                {/* <TileTest  /> */}
+                {details.map((data) => {
+                    return (
+                        <Grid container item xs={6} direction="column" >
+                        <TileTest key={data._id} detail = {data}/>
+                        </Grid>
+                    )
+                })}
+            {/* </Grid> */}
+            {/* <button onClick={() => {
+                console.log(details)
+            }}>test</button> */}
         </Grid>
-       
-       </div>
-       </div>
+        </div>
+        </div>
     )
 }
 

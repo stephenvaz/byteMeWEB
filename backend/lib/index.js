@@ -207,9 +207,8 @@ app.post("/add_event", async (req, res, next) => {
 })
 
 app.post("/api/event_details", async (req, res) => {
-    const eventName = req.body['event_name'];
-    // console.log(req.body.event_name);
-    // console.log(eventName);
+    const { eventName } = req.body;
+    console.log(eventName);
     const eventDetails = await Events.find({ event_name: eventName });
     res.send(eventDetails);
     // console.log(eventDetails);
@@ -217,6 +216,8 @@ app.post("/api/event_details", async (req, res) => {
 
 app.get("/api/all_events", async (req, res) => {
     const eventDetails = await Events.find({ status: true });
+    console.log('test')
+    console.log(eventDetails)
     res.send(eventDetails);
 })
 
@@ -232,8 +233,8 @@ app.post("/api/set_permission", async (req, res) => {
 })
 
 // const test = async () => {
-//     const eventName = "event2"
-//     await Events.findOneAndUpdate({ event_name: eventName }, { status: true })
+//     const eventDetails = await Events.find({ status: true });
+//     console.log(eventDetails);
 // }
 
 // test();

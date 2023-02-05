@@ -1,33 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './openTile.css';
 import NavB from "./navbar";
+import axios from "axios";
+
 
 function OpenTile() {
+    const eventName = localStorage.getItem("details");
+
+    const [detail, setDetail] = useState(null);
+
+    useEffect(() => {
+        return async () => {
+            console.log(eventName)
+            const resp = await axios.post("http://localhost:4000/api/event_details", { eventName });
+            console.log(resp);
+            setDetail(resp.data);
+            console.log(detail[0])
+        }
+    }, [])
+
+    if (!detail) {
+        return (
+            <div>
+                return
+            </div>
+        )
+    }
+    const date = detail[0].time_from.split("T");
     return (
+
         <div className='back'>
             <NavB />
             <div>
-                <div class="box">
+                <div className="box">
                     <a href="#"></a>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="hover-point"></div>
-                    <div class="box-contents"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="hover-point"></div>
+                    <div className="box-contents"></div>
                 </div>
             </div>
             <div className="info">
-                <h1 className="heading">About Night Party</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima asperiores, ex, doloribus dignissimos inventore, eveniet officia perspiciatis facere beatae ducimus soluta distinctio dicta quibusdam ad provident nisi sapiente illum amet sint sit id explicabo necessitatibus. Illum, id, quasi reprehenderit mollitia quidem natus adipisci consequatur distinctio ipsum nesciunt debitis, sequi fugit ipsa possimus blanditiis nobis doloremque! Aperiam eos accusamus doloribus vitae vel, voluptatum vero inventore reprehenderit quae velit delectus esse sequi nobis ut facere, labore aspernatur nam eaque? Voluptates ab assumenda corrupti voluptas rerum provident iure facilis autem, maiores fugiat quis deleniti placeat porro similique dolores voluptatem error vel qui. Tempore?
+                <h1>About Night Party</h1>
+                <p>{detail[0].details}
                 </p>
             </div>
             <div className="rules">
-                <h1 className="heading"> Rules</h1>
-                <ul style={{listStyle: "unset", textAlign:"left"}}>
+                <h1> Rules</h1>
+                <ul style={{ listStyle: "unset", textAlign: "left" }}>
                     <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
                     <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
                     <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, ratione.</li>
@@ -37,9 +62,9 @@ function OpenTile() {
                 </ul>
             </div>
             <div className="amt">
-                <h4>Date: 5th February 2023</h4>
-                <h4>Time: 2.00 pm</h4>
-                <h4>Prize Money: 35,000 INR</h4>
+                <h4>Date:{date[0]}</h4>
+                <h4>Time:{date[1]}</h4>
+                <h4>Prize: {detail[0].prize}</h4>
             </div>
             <div className="com-logo">
             </div>
